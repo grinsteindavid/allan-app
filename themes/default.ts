@@ -1,5 +1,7 @@
 const defaultTheme = {
-    primaryColor: 'blue',
+    colors: {
+        primary: 'blue',
+    },
 }
 
 export type defaultThemeType = typeof defaultTheme

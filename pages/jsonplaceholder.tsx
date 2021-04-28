@@ -1,4 +1,5 @@
 import Card from 'components/card'
+import CardContainer from 'components/card_container'
 import Code from 'components/code'
 import Container from 'components/container'
 import Description from 'components/description'
@@ -51,15 +52,17 @@ export default function JSONPlaceholderPage() {
 
                 <Grid>
                     {loading && 'Loading...'}
-                    {posts.map(post => {
+                    <CardContainer height="500px">
+                        {posts.map(post => {
 
-                        return (
-                            <Card key={post.id}>
-                                <h2>{post.title}</h2>
-                                <p>{post.body}</p>
-                            </Card>
-                        )
-                    })}
+                            return (
+                                <Card key={post.id}>
+                                    <h2>{post.title}</h2>
+                                    <p>{post.body}</p>
+                                </Card>
+                            )
+                        })}
+                    </CardContainer>
                 </Grid>
             </Main>
 
@@ -75,6 +78,6 @@ export default function JSONPlaceholderPage() {
                     </Logo>
                 </a>
             </Footer>
-        </Container>
+        </Container >
     )
 }
