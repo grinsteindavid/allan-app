@@ -1,7 +1,7 @@
 import React from 'react';
 import { CachePolicies, Provider as HttpProvider } from 'use-http';
 import { useGlobalContext } from 'context/global';
-import applyGlobalMiddlewares from 'utils/middlewares/apply_global';
+import withGlobalMiddlewares from 'utils/middlewares/apply_global';
 
 export interface IProps {
     children: React.ReactNode
@@ -37,7 +37,7 @@ export default function HttpWrapper({
 
                     return delay
                 },
-                interceptors: applyGlobalMiddlewares({
+                interceptors: withGlobalMiddlewares({
                     requests: [],
                     responses: []
                 })

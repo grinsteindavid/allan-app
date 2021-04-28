@@ -3,7 +3,7 @@ import applyQueueInSequence from 'utils/promises/queue';
 import { Interceptors } from 'use-http';
 import GlobalMiddlewares from 'api/middlewares/global';
 
-export default function applyGlobalMiddlewares({
+export default function withGlobalMiddlewares({
     requests,
     responses
 }: {
