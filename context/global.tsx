@@ -44,8 +44,17 @@ export function useGlobalContext() {
         })
     }
 
+    function toggleAuthModal(value: boolean) {
+        setState(prevState => {
+            return {
+                ...prevState,
+            }
+        })
+    }
+
     return {
         state,
         setIsLoading,
+        toggleAuthModal,
     }
 }
