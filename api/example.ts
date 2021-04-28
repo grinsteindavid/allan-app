@@ -3,7 +3,7 @@ import urlBuilder from "utils/url/builder";
 import withGlobalMiddlewares from "utils/middlewares/apply_global";
 import DelayMiddleware from 'api/middlewares/delay';
 
-export const NAMESPACE = '/example';
+export const NAMESPACE = 'example';
 
 export function create(userID: string): UseFetchArgs {
     const url = `${NAMESPACE}/${userID}/create`
