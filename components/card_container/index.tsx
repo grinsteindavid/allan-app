@@ -5,6 +5,7 @@ export interface IProps {
 }
 
 const CardContainer = styled.div<IProps>`
+    width: 100%;
 	height: ${({ height }) => height};
     max-height: ${({ height }) => height};
     min-height: ${({ height }) => height};

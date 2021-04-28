@@ -52,17 +52,19 @@ export default function JSONPlaceholderPage() {
 
                 <Grid>
                     {loading && 'Loading...'}
-                    <CardContainer height="500px">
-                        {posts.map(post => {
+                    {loading === false && (
+                        <CardContainer height="500px">
+                            {posts.map(post => {
 
-                            return (
-                                <Card key={post.id}>
-                                    <h2>{post.title}</h2>
-                                    <p>{post.body}</p>
-                                </Card>
-                            )
-                        })}
-                    </CardContainer>
+                                return (
+                                    <Card key={post.id}>
+                                        <h2>{post.title}</h2>
+                                        <p>{post.body}</p>
+                                    </Card>
+                                )
+                            })}
+                        </CardContainer>
+                    )}
                 </Grid>
             </Main>
 

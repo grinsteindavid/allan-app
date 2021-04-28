@@ -13,7 +13,7 @@ export default function urlBuilder({
     if (params) {
         const queryString = buildQueryStringUrl({ queryStringUrl: finalUrl, params: params as any })
 
-        finalUrl = `${finalUrl}?${queryString.toString()}`
+        finalUrl = `${finalUrl}?${queryString}`
     }
 
     return finalUrl
