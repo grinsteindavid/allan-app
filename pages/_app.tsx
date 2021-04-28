@@ -1,3 +1,4 @@
+import withErrorBoundary from 'components/error_boundaries'
 import HttpWrapper from 'components/wrappers/http'
 import { GlobalProvider } from 'context/global'
 import 'styles/globals.scss'
@@ -12,4 +13,4 @@ function MyApp({ Component, pageProps }: any) {
 	)
 }
 
-export default MyApp
+export default withErrorBoundary(MyApp)
