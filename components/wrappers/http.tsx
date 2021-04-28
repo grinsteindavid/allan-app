@@ -14,7 +14,7 @@ export default function HttpWrapper({
 
     return (
         <HttpProvider
-            url=''
+            url='/testing'
             options={{
                 persist: false,
                 cache: 'no-cache',
@@ -37,10 +37,7 @@ export default function HttpWrapper({
 
                     return delay
                 },
-                interceptors: withGlobalMiddlewares({
-                    requests: [],
-                    responses: []
-                })
+                interceptors: withGlobalMiddlewares()
             }}
         >
             {children}

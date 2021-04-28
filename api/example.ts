@@ -12,10 +12,7 @@ export function create(userID: string): UseFetchArgs {
         url,
         {
             method: 'post',
-            interceptors: withGlobalMiddlewares({
-                requests: [],
-                responses: []
-            })
+            interceptors: withGlobalMiddlewares()
         }
     ]
 }
@@ -27,10 +24,7 @@ export function remove(userID: string, id: string): UseFetchArgs {
         url,
         {
             method: 'post',
-            interceptors: withGlobalMiddlewares({
-                requests: [],
-                responses: []
-            })
+            interceptors: withGlobalMiddlewares()
         }
     ]
 }
@@ -43,7 +37,6 @@ export function update(userID: string, id: string): UseFetchArgs {
         {
             method: 'post',
             interceptors: withGlobalMiddlewares({
-                requests: [],
                 responses: [DelayMiddleware.response]
             })
         }

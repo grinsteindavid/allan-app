@@ -3,13 +3,15 @@ import applyQueueInSequence from 'utils/promises/queue';
 import { Interceptors } from 'use-http';
 import GlobalMiddlewares from 'api/middlewares/global';
 
-export default function withGlobalMiddlewares({
-    requests,
-    responses
-}: {
-    requests: any[],
-    responses: any[]
-}): Interceptors {
+export interface IOptions {
+    requests?: any[],
+    responses?: any[]
+}
+
+export default function withGlobalMiddlewares(options: IOptions | undefined = undefined): Interceptors {
+    const requests = options?.requests || []
+    const responses = options?.responses || []
+
     const middlewares: Interceptors = {
         // every time we make an http request, this will run 1st before the request is made
         // url, path and route are supplied to the interceptor
