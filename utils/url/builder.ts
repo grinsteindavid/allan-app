@@ -11,7 +11,7 @@ export default function urlBuilder({
     let finalUrl = url
 
     if (params) {
-        const queryString = buildQueryStringUrl({ queryStringUrl: finalUrl, params: params as any })
+        const queryString = buildQueryString({ queryStringUrl: finalUrl, params: params as any })
 
         finalUrl = `${finalUrl}?${queryString}`
     }
@@ -19,7 +19,7 @@ export default function urlBuilder({
     return finalUrl
 }
 
-export function buildQueryStringUrl({
+export function buildQueryString({
     queryStringUrl,
     params,
 }: {
