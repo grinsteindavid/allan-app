@@ -16,6 +16,8 @@ export default function Page() {
 
 			<Segment>
 				<AdminTable />
+
+				<div style={{ height: 1000 }}></div>
 			</Segment>
 		</>
 	)

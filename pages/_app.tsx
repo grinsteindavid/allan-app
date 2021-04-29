@@ -8,16 +8,28 @@ import PageTransition from 'components/transitions/page';
 import AdminMenu from 'components/menu';
 import Container from 'components/container';
 
-function MyApp({ Component, pageProps }: any) {
+function MyApp({
+	Component,
+	pageProps }:
+	{
+		Component: any,
+		pageProps: { statusCode: number }
+	}) {
+
 	return (
 		<GlobalProvider>
 			<HttpWrapper>
 				<ThemeProvider theme={defaultTheme}>
 					<PageTransition>
-						<AdminMenu />
-						<Container padding="0.5rem 1rem 0.5rem 17rem">
-							<Component {...pageProps} />
-						</Container>
+						{pageProps.statusCode !== 404 && (
+							<>
+								<AdminMenu />
+								<Container padding="0.5rem 1rem 0.5rem 17rem">
+									<Component {...pageProps} />
+								</Container>
+							</>
+						)}
+						{pageProps.statusCode === 404 && <Component {...pageProps} />}
 					</PageTransition>
 				</ThemeProvider>
 			</HttpWrapper>

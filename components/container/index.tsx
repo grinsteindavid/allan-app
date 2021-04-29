@@ -7,10 +7,6 @@ export interface IProps {
 const Container = styled.div<IProps>`
 	min-height: 100vh;
 	padding: ${({ padding }) => padding};
-	/* display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center; */
 	height: 100vh;
 `;
 

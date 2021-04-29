@@ -3,7 +3,7 @@ import { Header, Image, Table } from 'semantic-ui-react'
 export default function AdminTable() {
 
     return (
-        <Table basic='very' celled collapsing>
+        <Table basic='very' celled collapsing style={{ width: '100%' }}>
             <Table.Header>
                 <Table.Row>
                     <Table.HeaderCell>Employee</Table.HeaderCell>
