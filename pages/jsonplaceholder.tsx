@@ -1,6 +1,5 @@
 import Card from 'components/card'
 import CardContainer from 'components/card_container'
-import Code from 'components/code'
 import Container from 'components/container'
 import Description from 'components/description'
 import Footer from 'components/footer'
@@ -10,6 +9,7 @@ import Main from 'components/main'
 import Title from 'components/title'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import useFetch from 'use-http'
 
@@ -28,7 +28,7 @@ export default function JSONPlaceholderPage() {
     useEffect(() => { loadInitialPosts() }, [])
 
     async function loadInitialPosts() {
-        const initialPosts = await get()
+        const initialPosts: IPost[] = await get()
         if (response.ok) setPosts(initialPosts)
     }
 
@@ -46,8 +46,7 @@ export default function JSONPlaceholderPage() {
                 </Title>
 
                 <Description>
-                    Get started by editing{' '}
-                    <Code>pages/index.js</Code>
+                    <Link href="/">Homepage</Link>
                 </Description>
 
                 <Grid>

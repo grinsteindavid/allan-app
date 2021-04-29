@@ -9,6 +9,7 @@ import Main from 'components/main'
 import Title from 'components/title'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 
 
 
@@ -28,8 +29,7 @@ export default function HomePage() {
 				</Title>
 
 				<Description>
-					Get started by editing{' '}
-					<Code>pages/index.js</Code>
+					<Link href="/jsonplaceholder">jsonplaceholder</Link>
 				</Description>
 
 				<Grid>

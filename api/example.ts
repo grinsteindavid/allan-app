@@ -12,7 +12,6 @@ export function create(userID: string): UseFetchArgs {
         url,
         {
             method: 'post',
-            interceptors: withGlobalMiddlewares()
         }
     ]
 }
@@ -24,7 +23,6 @@ export function remove(userID: string, id: string): UseFetchArgs {
         url,
         {
             method: 'post',
-            interceptors: withGlobalMiddlewares()
         }
     ]
 }

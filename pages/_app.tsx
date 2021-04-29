@@ -4,13 +4,16 @@ import { GlobalProvider } from 'context/global'
 import { ThemeProvider } from "styled-components";
 import defaultTheme from 'themes/default';
 import 'styles/globals.scss';
+import PageTransition from 'components/transitions/page';
 
 function MyApp({ Component, pageProps }: any) {
 	return (
 		<GlobalProvider>
 			<HttpWrapper>
 				<ThemeProvider theme={defaultTheme}>
-					<Component {...pageProps} />
+					<PageTransition>
+						<Component {...pageProps} />
+					</PageTransition>
 				</ThemeProvider>
 			</HttpWrapper>
 		</GlobalProvider>
