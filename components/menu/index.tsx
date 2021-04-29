@@ -1,3 +1,4 @@
+import Logo from "components/logo";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import { Dropdown, Icon, Menu, MenuItemProps } from "semantic-ui-react";
@@ -15,6 +16,16 @@ export default function AdminMenu() {
             fixed="left"
             vertical
         >
+            <Menu.Header
+                name='/'
+                active={activeItem === '/'}
+                content={
+                    <Logo>
+                        <Icon name="universal access" size="large" />
+                    </Logo>
+                }
+            />
+
             <Dropdown item text='Allan Naranjo'>
                 <Dropdown.Menu>
                     <Dropdown.Item icon='edit' text='Edit Profile' />

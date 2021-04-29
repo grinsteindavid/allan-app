@@ -1,13 +1,15 @@
 import { keyframes } from "styled-components";
 
-const rotate = keyframes`
+const rotate = (from: number = 0, to: number = 360) => {
+	return keyframes`
   from {
-    transform: rotate(0deg);
+    transform: rotate(${from}deg);
   }
 
   to {
-    transform: rotate(360deg);
+    transform: rotate(${to}deg);
   }
 `;
+}
 
 export default rotate
