@@ -5,7 +5,7 @@ import {
 } from "react-transition-group";
 import { useRouter } from "next/router";
 
-import { CSSProperties, ReactChild } from "react"
+import { CSSProperties, ReactNode } from "react"
 
 type TransitionKind<RC> = {
     children: RC
@@ -40,7 +40,7 @@ const getTransitionStyles: {
     }
 }
 
-const PageTransition: React.FC<TransitionKind<ReactChild>> = ({
+const PageTransition: React.FC<TransitionKind<ReactNode>> = ({
     children,
 }) => {
     const router = useRouter()

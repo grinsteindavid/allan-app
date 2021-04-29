@@ -5,6 +5,8 @@ import { ThemeProvider } from "styled-components";
 import defaultTheme from 'themes/default';
 import 'styles/globals.scss';
 import PageTransition from 'components/transitions/page';
+import AdminMenu from 'components/menu';
+import Container from 'components/container';
 
 function MyApp({ Component, pageProps }: any) {
 	return (
@@ -12,7 +14,10 @@ function MyApp({ Component, pageProps }: any) {
 			<HttpWrapper>
 				<ThemeProvider theme={defaultTheme}>
 					<PageTransition>
-						<Component {...pageProps} />
+						<AdminMenu />
+						<Container padding="0.5rem 1rem 0.5rem 17rem">
+							<Component {...pageProps} />
+						</Container>
 					</PageTransition>
 				</ThemeProvider>
 			</HttpWrapper>
