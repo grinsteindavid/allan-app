@@ -1,3 +1,4 @@
+import AdminLayout from 'components/layouts/admin'
 import Head from 'next/head'
 
 
@@ -12,7 +13,9 @@ export default function Page() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
+            <AdminLayout>
 
+            </AdminLayout>
         </>
     )
 }

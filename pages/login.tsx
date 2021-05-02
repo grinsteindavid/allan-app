@@ -1,8 +1,34 @@
+import Container from 'components/container'
 import Head from 'next/head'
+import { Button, Grid, Input, Label, Segment } from 'semantic-ui-react'
+import { useRouter } from "next/router";
+import { GetServerSideProps } from 'next';
 
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    // Get the user's session based on the request
+    // const user = req.session.get('user')
+    let user = true
 
+    if (user) {
+        return {
+            redirect: {
+                destination: '/contacts',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {}
+    }
+}
 
 export default function Page() {
+    const router = useRouter()
+
+    function loginHandler() {
+        router.push('/contacts', undefined, { shallow: true })
+    }
 
     return (
         <>
@@ -12,6 +38,50 @@ export default function Page() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
 
+
+            <Container justifyContent="center" alignItems="center" display="flex">
+                <Segment style={{ width: 400 }}>
+                    <Grid>
+                        <Grid.Row>
+                            <Grid.Column width="16">
+                                <Label
+                                    style={{ marginBottom: 10 }}
+                                    content="Email Address"
+                                />
+                            </Grid.Column>
+                            <Grid.Column width="16">
+                                <Input
+                                    fluid
+                                />
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Grid.Column width="16">
+                                <Label
+                                    style={{ marginBottom: 10 }}
+                                    content="Password"
+                                />
+                            </Grid.Column>
+                            <Grid.Column width="16">
+                                <Input
+                                    fluid
+                                    type="password"
+                                />
+                            </Grid.Column>
+                        </Grid.Row>
+                        <Grid.Row>
+                            <Grid.Column width="16">
+                                <Button
+                                    fluid
+                                    color="green"
+                                    content="Iniciar sesion"
+                                    onClick={loginHandler}
+                                />
+                            </Grid.Column>
+                        </Grid.Row>
+                    </Grid>
+                </Segment>
+            </Container>
         </>
     )
 }
