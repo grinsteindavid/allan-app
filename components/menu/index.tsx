@@ -2,6 +2,7 @@ import Logo from "components/logo";
 import { useRouter } from "next/router";
 import { MouseEvent, useState } from "react";
 import { Dropdown, Icon, Menu, MenuItemProps } from "semantic-ui-react";
+import Link from 'next/link';
 
 export default function AdminMenu() {
     const router = useRouter()
@@ -17,12 +18,12 @@ export default function AdminMenu() {
             vertical
         >
             <Menu.Header
-                name='/'
-                active={activeItem === '/'}
                 content={
-                    <Logo>
-                        <Icon name="universal access" size="large" />
-                    </Logo>
+                    <Link href="/">
+                        <Logo>
+                            <Icon name="universal access" size="large" />
+                        </Logo>
+                    </Link>
                 }
             />
 

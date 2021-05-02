@@ -1,3 +1,4 @@
+import AdminLayout from 'components/layouts/admin'
 import AdminTable from 'components/tables'
 import Head from 'next/head'
 import { Input, Segment } from 'semantic-ui-react'
@@ -13,17 +14,19 @@ export default function Page() {
             </Head>
 
 
-            <Segment>
-                <Input
-                    iconPosition="left"
-                    icon="search"
-                    placeholder="Buscar contacto"
-                />
+            <AdminLayout>
+                <Segment>
+                    <Input
+                        iconPosition="left"
+                        icon="search"
+                        placeholder="Buscar contacto"
+                    />
 
-                <AdminTable />
+                    <AdminTable />
 
-                <div style={{ height: 1000 }}></div>
-            </Segment>
+                    <div style={{ height: 1000 }}></div>
+                </Segment>
+            </AdminLayout>
         </>
     )
 }
