@@ -4,7 +4,7 @@ import { Button, Grid, Input, Label, Segment } from 'semantic-ui-react'
 import { useRouter } from "next/router";
 import { GetServerSideProps } from 'next';
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     // Get the user's session based on the request
     // const user = req.session.get('user')
     let user = true
