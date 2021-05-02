@@ -31,3 +31,14 @@ export function signUp(): UseFetchArgs {
         }
     ]
 }
+
+export function logout(): UseFetchArgs {
+    const url = `${NAMESPACE}/logout`
+
+    return [
+        url,
+        {
+            method: 'get',
+        }
+    ]
+}
