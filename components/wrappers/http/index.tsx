@@ -14,7 +14,7 @@ export default function HttpWrapper({
 
     return (
         <HttpProvider
-            url='/testing'
+            url=''
             options={{
                 persist: false,
                 cache: 'no-cache',

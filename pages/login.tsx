@@ -3,13 +3,15 @@ import Head from 'next/head'
 import { Button, Grid, Input, Label, Segment } from 'semantic-ui-react'
 import { useRouter } from "next/router";
 import { GetServerSideProps } from 'next';
+import { useState } from 'react';
+import useFetch from 'use-http';
+import { login } from 'api/auth';
 
-export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
-    // Get the user's session based on the request
-    // const user = req.session.get('user')
-    let user = true
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const { req, res } = ctx
+    const token = req.headers.Authorization
 
-    if (user) {
+    if (Boolean(token) === true) {
         return {
             redirect: {
                 destination: '/contacts',
@@ -25,9 +27,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
 
 export default function Page() {
     const router = useRouter()
+    const { post, response, loading, error } = useFetch(...login())
+    const [email, setEmail] = useState<string>('')
+    const [password, setPassword] = useState<string>('')
 
-    function loginHandler() {
+    async function loginHandler() {
+        await post("", { email, password })
+
         router.push('/contacts', undefined, { shallow: true })
+
     }
 
     return (
@@ -52,6 +60,8 @@ export default function Page() {
                             <Grid.Column width="16">
                                 <Input
                                     fluid
+                                    value={email}
+                                    onChange={(event, data) => setEmail(data.value)}
                                 />
                             </Grid.Column>
                         </Grid.Row>
@@ -66,12 +76,16 @@ export default function Page() {
                                 <Input
                                     fluid
                                     type="password"
+                                    value={password}
+                                    onChange={(event, data) => setPassword(data.value)}
                                 />
                             </Grid.Column>
                         </Grid.Row>
                         <Grid.Row>
                             <Grid.Column width="16">
                                 <Button
+                                    disabled={loading}
+                                    loading={loading}
                                     fluid
                                     color="green"
                                     content="Iniciar sesion"

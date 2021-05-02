@@ -12,12 +12,12 @@ interface ExtendedResponse extends NextApiResponse {
 }
 
 const handler = nc()
-	.get<ExtendedRequest, ExtendedResponse>((req, res) => {
+	.post<ExtendedRequest, ExtendedResponse>((req, res) => {
 		const { email, password } = req.body
 		const timestamp = (new Date()).getTime()
 
 		if (email && password) {
-			res.status(200).json({ token: String(timestamp) })
+			res.status(200).json({ user: { token: String(timestamp) } })
 		} else {
 			res.status(400).json({ message: 'email or password' })
 		}

@@ -1,6 +1,27 @@
 import AdminLayout from 'components/layouts/admin'
+import { GetServerSideProps } from 'next'
 import Head from 'next/head'
 import { Button, Grid, Header, Label } from 'semantic-ui-react'
+import authenticate from 'utils/middlewares/authenticate'
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+    const { req, res } = ctx
+
+    try {
+        await authenticate(ctx)
+    } catch (error) {
+        return {
+            redirect: {
+                destination: '/login',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: {}
+    }
+}
 
 export default function Page() {
 
