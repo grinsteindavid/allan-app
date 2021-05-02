@@ -6,10 +6,12 @@ import { GetServerSideProps } from 'next';
 import { useState } from 'react';
 import useFetch from 'use-http';
 import { login } from 'api/auth';
+import Cookies from 'cookies';
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
     const { req, res } = ctx
-    const token = req.headers.Authorization
+    const cookies = new Cookies(req, res)
+    const token = cookies.get('token')
 
     if (Boolean(token) === true) {
         return {
@@ -34,7 +36,9 @@ export default function Page() {
     async function loginHandler() {
         await post("", { email, password })
 
-        router.push('/contacts', undefined, { shallow: true })
+        if (response.ok) {
+            router.push('/contacts', undefined, { shallow: true })
+        }
 
     }
 

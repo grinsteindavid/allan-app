@@ -12,6 +12,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "cookies": "^0.8.0",
     "lodash": "^4.17.21",
     "next": "10.2.0",
     "next-connect": "^0.10.1",
@@ -26,6 +27,7 @@
     "use-http": "^1.0.20"
   },
   "devDependencies": {
+    "@types/cookies": "^0.7.6",
     "@types/lodash": "^4.14.168",
     "@types/next": "^9.0.0",
     "@types/node": "^15.0.1",
